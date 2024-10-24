@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import login
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 def signup_view(request):
     if request.method == 'POST':
@@ -28,7 +29,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('homepage')  # Change to your homepage URL
+                return redirect('test')  # Change to your homepage URL
     else:
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -36,3 +37,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def test_view(request):
+    return render(request, 'accounts/test.html')

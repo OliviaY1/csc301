@@ -8,7 +8,8 @@ class CustomLoginView(LoginView):
 urlpatterns = [
     # path('', views.signup_view, name='signup'),
     path('signup/', views.signup_view, name='signup'),
-    # path('login/', views.login_view, name='login'),
-    path('login/', CustomLoginView.as_view(), name='login'),
+    path('login/', views.login_view, name='login'),
+    # path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', views.logout_view, name='logout'),
+    path('test/', views.test_view, name='test'),
 ]

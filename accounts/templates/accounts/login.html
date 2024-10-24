@@ -59,11 +59,8 @@
 <body>
     <div class="form-container">
         <h2>Login</h2>
-<<<<<<< HEAD
         <form method="POST" action="{% url 'login' %}">
-=======
-        <form method="POST">
->>>>>>> 8ebdd75f996ac4b87a28716596129badc30ef164
+            {% csrf_token %}
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
